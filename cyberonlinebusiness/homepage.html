@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Loan Cash Solutions</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at center, #102a2e, #061416);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+}
+
+.logo-container {
+    text-align: center;
+    perspective: 1000px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.logo-title {
+    font-size: 60px;
+    font-weight: bold;
+    color: #f5d27a;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 
+        2px 2px 0 #b8860b,
+        4px 4px 10px rgba(255,215,0,0.6);
+    transform: rotateX(15deg);
+}
+
+.subtitle {
+    font-size: 22px;
+    color: #ffffff;
+    margin-top: 5px;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #9be7a1;
+    font-style: italic;
+}
+
+.coin {
+    width: 120px;
+    height: 120px;
+    margin: 30px auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #062022;
+    box-shadow: 
+        inset 0 0 20px #fff8dc,
+        0 0 30px gold;
+    animation: spin 4s linear infinite;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.arrow {
+    font-size: 45px;
+    color: #00ff88;
+    animation: floatUp 2s infinite ease-in-out;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 20px;
+}
+
+.arrow:hover {
+    font-size: 55px;
+    color: #00ffaa;
+    text-shadow: 0 0 15px #00ff88;
+    transform: scale(1.15);
+}
+
+.badge {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #ffffff;
+    background: #b8860b;
+    padding: 8px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: 0 0 15px gold;
+    animation: pulse 2s infinite;
+}
+
+/* Animations */
+
+@keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo-container">
+    <div class="logo-title">Cyber Loan</div>
+    <div class="subtitle">Cash Solutions</div>
+
+    <div class="coin" onclick="playClickSound()">$</div>
+
+    <div class="arrow" onclick="redirectToIndex()">⬆</div>
+
+
+    <div class="tagline">Smart Money For Smart Students</div>
+</div>
+
+<!-- Sound Effects -->
+<audio id="introSound" src="https://assets.mixkit.co/sfx/preview/mixkit-coins-handling-1939.mp3"></audio>
+<audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-cash-register-purchase-2691.mp3"></audio>
+
+<script>
+window.onload = function() {
+    document.getElementById("introSound").play();
+}
+
+function playClickSound() {
+    document.getElementById("clickSound").play();
+}
+
+function redirectToIndex() {
+    window.location.href = 'index.html';
+}
+</script>
+
+</body>
+</html>

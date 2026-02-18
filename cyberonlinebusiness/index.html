@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <header>
+            <div class="header-inner">
+                <div class="site-title">Welcome To Cyber Loans Cash Solutions</div>
+            </div>
+        </header>
+        <main>
+            <h2>Loan qoutation!!</h2>
+            <div id="success-message" class="success-message"></div>
+            <div class="content-grid">
+                <div class="form-wrap">
+                    <form action="submit_form.php" method="post" enctype="multipart/form-data">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="surname">Surname:</label>
+                        <input type="text" id="surname" name="surname" required>
+
+                        <label for="email">Dut student email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" maxlength="10" name="phone" required>
+
+                        <label for="id_number">ID Number:</label>
+                        <input type="text" id="id_number" maxlength="13" name="id_number" required>
+
+                        <label for="loan_amount">Loan Amount:</label>
+                        <input type="number" id="loan_amount" name="loan_amount" required>
+
+                        <div id="interest-result" class="interest-display"></div>
+
+                        <label for="proof_identity">Proof of Identity (Image):</label>
+                        <input type="file" id="proof_identity" name="proof_identity" accept="image/*" required>
+   <label for="proof_student_card">Student Card (Image):</label>
+                        <input type="file" id="proof_student_card" name="proof_student_card" accept="image/*" required>
+                        <input type="submit" value="Continue"> <a href="banking.html">click to add your banking details</a>
+                    </form>
+                </div>
+
+                <div class="logo-panel">
+                    <img src="New folder/images/ChatGPT Image Feb 13, 2026, 11_51_59 PM.png" alt="Cyber Loans Cash Solutions logo" class="panel-logo">
+                </div>
+            </div>
+        </main>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>Cyber Loans Cash Solutions provides fast and secure online loan services tailored to your financial needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: info@cyberloanscash.com</p>
+                    <p>Phone:063 273 9606</p>
+                    <p>Address: 85 charlot maxekexeke street</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#facebook" class="social">Facebook</a>
+                        <a href="#twitter" class="social">Twitter</a>
+                        <a href="#linkedin" class="social">LinkedIn</a>
+                        <a href="#instagram" class="social">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cyber Loans Cash Solutions. All rights reserved.</p>
+                <p>This site is not affiliated with any government agency. Licensed & Insured.</p>
+            </div>
+        </footer>
+    </body>
+    <script>
+        const loanAmountInput = document.getElementById('loan_amount');
+        const interestResultDiv = document.getElementById('interest-result');
+        const form = document.querySelector('form');
+        const successMessage = document.getElementById('success-message');
+
+        loanAmountInput.addEventListener('input', function() {
+            const amount = parseFloat(this.value);
+            if (!isNaN(amount) && amount > 0) {
+                const interest = amount * 0.30;
+                const total = amount + interest;
+                interestResultDiv.innerHTML = `
+                    <div class="interest-info">
+                        <p><strong>Loan Amount:</strong> R${amount.toFixed(2)}</p>
+                        <p><strong>30% Interest:</strong> R${interest.toFixed(2)}</p>
+                        <p class="total"><strong>Total Amount Due:</strong> R${total.toFixed(2)}</p>
+                    </div>
+                `;
+            } else {
+                interestResultDiv.innerHTML = '';
+            } 
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            successMessage.innerHTML = `
+                <div class="success-box">
+                    <h3>✓ Loan Successful</h3>
+                    <p>Your loan application has been approved and processed successfully.</p>
+                </div>
+            `;
+            successMessage.style.display = 'block';
+            form.style.display = 'none';
+        });
+    </script>
+</html>
